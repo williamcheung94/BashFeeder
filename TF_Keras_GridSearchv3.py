@@ -16,7 +16,8 @@ def create_model(learn_rate =.001, activation="relu", init='glorot_uniform', ker
     batch_size = 100
     # create model
     model = Sequential()
-    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))  # input_dim=(20, )
+    model.add(Dense(280, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))
+    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))  # input_dim=(20, )
     #model.add(Dropout(dropout))
     model.add(Dense(64, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))
     #model.add(Dropout(dropout))
@@ -42,7 +43,8 @@ def create_model(learn_rate =.001, activation="relu", init='glorot_uniform', ker
 def create_model_Chromashift(learn_rate =.001, activation="relu", init='glorot_uniform', kernel_regularizer="l1", dropout=0, input_dim=12):
     # create model
     model = Sequential()
-    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))  # input_dim=(20, )
+    model.add(Dense(280, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))
+    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))  # input_dim=(20, )
     # model.add(Dropout(dropout))
     model.add(Dense(64, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))
     # model.add(Dropout(dropout))
@@ -57,7 +59,8 @@ def create_model_Chromashift(learn_rate =.001, activation="relu", init='glorot_u
 def create_model_specCont(learn_rate =.001, activation="relu", init='glorot_uniform', kernel_regularizer="l1", dropout=0, input_dim=10):
     # create model
     model = Sequential()
-    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))  # input_dim=(20, )
+    model.add(Dense(280, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))
+    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer)) # input_dim=(20, )
     # model.add(Dropout(dropout))
     model.add(Dense(64, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))
     # model.add(Dropout(dropout))
@@ -72,7 +75,8 @@ def create_model_specCont(learn_rate =.001, activation="relu", init='glorot_unif
 def create_model_tonnetz(learn_rate =.001, activation="relu", init='glorot_uniform', kernel_regularizer="l1", dropout=0, input_dim=6):
     # create model
     model = Sequential()
-    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))  # input_dim=(20, )
+    model.add(Dense(280, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))
+    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))# input_dim=(20, )
     # model.add(Dropout(dropout))
     model.add(Dense(64, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))
     # model.add(Dropout(dropout))
@@ -86,7 +90,8 @@ def create_model_tonnetz(learn_rate =.001, activation="relu", init='glorot_unifo
 def create_model_LPCRPLP(learn_rate =.001, activation="relu", init='glorot_uniform', kernel_regularizer="l1", dropout=0, input_dim=13):
     # create model
     model = Sequential()
-    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))  # input_dim=(20, )
+    model.add(Dense(280, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer, input_dim=input_dim))
+    model.add(Dense(128, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))# input_dim=(20, )
     # model.add(Dropout(dropout))
     model.add(Dense(64, kernel_initializer=init, activation=activation, kernel_regularizer=kernel_regularizer))
     # model.add(Dropout(dropout))
@@ -118,7 +123,7 @@ Here I pull the train test data from excel files.
 
 File = "S_10pData_withNoise_6_27_1.63sec"
 
-File_types = ["GFCC"]
+File_types = ["chromaCqt", "RMS", "spectCont", "tonnetz", "MFCC", "delta", "deltadelta"]
 #["GFCC", "LFCC", "NGCC", "LPC", "RPLP", "chromashift", "melspect", "specCont", "tonnetz", "MFCC", "delta", "deltadelta"]
 for item in File_types:
     File_Name = File + "_" + item + ".xlsx"
